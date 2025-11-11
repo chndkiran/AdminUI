@@ -33,7 +33,7 @@ constructor(private catService:CategoryserviceService,private cdr: ChangeDetecto
 
    submit(){
     if(!this.categoryName || !this.categoryDescription){
-      this.error = "Title and Body fields are required.";
+      this.error = "Category Name and Description fields are required.";
       return;
     }
 
