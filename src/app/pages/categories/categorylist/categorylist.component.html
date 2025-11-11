@@ -1,0 +1,51 @@
+<div class="card mt-5">
+    <h3 class="card-header p-3"> Angular CRUD App</h3>
+    <div class="card-body">
+
+        <div class="m-1">
+            <a
+            [routerLink]="['/categories/category/addcategory']"
+             class="btn btn-success btn-sm">Create Category</a>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Category ID</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th width="250px">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- @for(category of categories; track category.categoryId){ -->
+                <tr *ngFor="let category of categories | paginate: { itemsPerPage: 10, currentPage: page ,totalItems: totalCount}">
+                    <td>{{ category.categoryId }}</td>
+                    <td>{{ category.categoryName }}</td>
+                    <td>{{ category.categoryDescription }}</td>
+                    <td>{{ category.isActive }}</td>
+                    <td>                        
+                        <a [routerLink]="['/categories/category', category.categoryId,'edit']" class="btn btn-primary m-1 btn-sm">Edit</a>
+                        <button (click)="deleteCategory(category.categoryId)" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+                <!-- } -->
+            </tbody>
+        </table>
+
+        <!-- <ul>
+  <li *ngFor="let category of categories | paginate: { itemsPerPage: 10, currentPage: page }">
+    
+    {{ category.categoryId }}
+                {{ category.categoryName }}
+                   {{ category.categoryDescription }}
+                   {{ category.isActive }}
+  </li>
+</ul> -->
+
+<!-- Pagination -->
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+    </div>
+</div>
