@@ -18,7 +18,7 @@ import { ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
 export class CategorylistComponent implements OnInit{
   categories:categories[]=[];
   page = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 5;
   totalCount = 0;
   pageCount=0;
 

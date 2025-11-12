@@ -15,7 +15,7 @@ import { ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
 export class UserslistComponent implements OnInit{
 users:User[]=[];
   page = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 5;
   totalCount = 0;
   pageCount=0;
 
@@ -40,4 +40,8 @@ users:User[]=[];
   });
   
 }
+onPageChange(page: number): void {
+    this.page = page;
+    this.loadUsers(this.page,this.itemsPerPage);
+  }
 }
