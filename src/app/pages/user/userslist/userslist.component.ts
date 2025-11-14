@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-userslist',
-  imports: [NgxPaginationModule,CommonModule],
+  imports: [NgxPaginationModule,CommonModule,RouterLink],
   templateUrl: './userslist.component.html',
   styleUrl: './userslist.component.css'
 })
@@ -30,7 +30,7 @@ users:User[]=[];
   }
 
   loadUsers(page:number,itemsPerPage:number){
-  this.userService.getAllUsers(page).subscribe((data: any)=>{
+  this.userService.getAllUsers(page,itemsPerPage).subscribe((data: any)=>{
     this.users.length=0;
     this.users=[...data.users];
     console.log(data);

@@ -5,8 +5,6 @@ import { RouterLink } from '@angular/router';
 import { NgxPaginationModule } from "ngx-pagination";
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy,ChangeDetectorRef } from '@angular/core';
-
-
 @Component({
   selector: 'app-categorylist',
   standalone: true,
@@ -22,8 +20,6 @@ export class CategorylistComponent implements OnInit{
   totalCount = 0;
   pageCount=0;
 
-
-
 constructor(private catService: CategoryserviceService,private cdr: ChangeDetectorRef){  
 }
 
@@ -35,7 +31,7 @@ this.loadCategories(this.page,this.itemsPerPage);
 }
 
 loadCategories(page:number,itemsPerPage:number){
-  this.catService.getAllCategories(page).subscribe((data: any)=>{
+  this.catService.getAllCategories(page,itemsPerPage).subscribe((data: any)=>{
     this.categories.length=0;
     this.categories=[...data.categories];
     console.log(data);

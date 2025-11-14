@@ -1,11 +1,11 @@
 <div class="card mt-5">
-    <h3 class="card-header p-3"> Angular CRUD App</h3>
+    <h3 class="card-header p-3">Categories</h3>
     <div class="card-body">
 
         <div class="m-1">
             <a
             [routerLink]="['/categories/category/addcategory']"
-             class="btn btn-success btn-sm">Create Category</a>
+             class="btn btn-success btn-sm">Add</a>
         </div>
 
         <table class="table table-bordered table-striped">
@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 <!-- @for(category of categories; track category.categoryId){ -->
-                <tr *ngFor="let category of categories | paginate: { itemsPerPage: 10, currentPage: page ,totalItems: totalCount}">
+                <tr *ngFor="let category of categories | paginate: { itemsPerPage: itemsPerPage, currentPage: page ,totalItems: totalCount}">
                     <td>{{ category.categoryId }}</td>
                     <td>{{ category.categoryName }}</td>
                     <td>{{ category.categoryDescription }}</td>

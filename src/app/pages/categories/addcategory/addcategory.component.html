@@ -10,12 +10,19 @@
 
         <form (ngSubmit)="submit()">
             <div class="mt-2">
-                <label for="categoryname">Category:</label>
+                <label for="categoryname">Category Name:</label>
                 <input [(ngModel)]="categoryName" type="text" name="categoryName" id="categoryName" class="form-control">
             </div>
             <div class="mt-2">
                 <label for="categorydescription">Description:</label>
                 <textarea [(ngModel)]="categoryDescription" type="text" name="categoryDescription" id="categoryDescription" class="form-control"></textarea>
+            </div>
+             <div class="row mt-2">
+                <label class="form-label">Category Status</label>   
+          <label class="form-check-label">
+              <input [(ngModel)]="isActive" type="checkbox" name="isActive" id="isActive" class="form-check-input">
+            Is Active
+          </label>
             </div>
 
             @if(error){

@@ -1,24 +1,44 @@
-export class User {
-    userid:number;
-    usrname:string;
-    password:string;
-    firstname:string;
-    lastname:string;
-    email:string;
-    mobile:string;
+import { identity } from "rxjs";
 
-    constructor(userid:number,username:string,password:string,firstname:string,lastname:string,email:string,mobile:string){
-        this.userid=userid;
-        this.usrname=username;
+export class User {
+    userId:number;
+    userName:string;
+    password:string;
+    firstName:string;
+    lastName:string;
+    middleName:string;
+    emailId:string;
+    mobile1:string;
+    mobile2:string;
+    telePhone:string;
+    gender:string;
+    dob:Date;
+    photo:string;
+    userRoleId:number;
+    addressId:number;
+    isActive:boolean;
+
+    constructor(userid:number,username:string,password:string,firstname:string,lastname:string,middlename:string,email:string,mobile1:string,mobile2:string,telephone:string,gender:string,dob:Date,photo:string,userroleid:number,addressid:number,isActive:boolean){
+        this.userId=userid;
+        this.userName=username;
         this.password=password;
-        this.firstname=firstname;
-        this.lastname=lastname;
-        this.email=email;
-        this.mobile=mobile;
+        this.firstName=firstname;
+        this.lastName=lastname;
+        this.middleName=middlename;
+        this.emailId=email;
+        this.mobile1=mobile1;
+        this.mobile2=mobile2;
+        this.telePhone=telephone;
+        this.gender=gender;
+        this.dob=dob;
+        this.photo=photo;
+        this.userRoleId=userroleid;
+        this.addressId=addressid;
+        this.isActive=isActive;
     }
 
     getuserName(userid:number){
-        return this.firstname+this.lastname;
+        return this.firstName+this.lastName;
     }
 
 }

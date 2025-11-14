@@ -14,14 +14,20 @@
                 <input [(ngModel)]="categoryId" type="text" readonly="readonly" name="categoryId" id="categoryId" class="form-control">
             </div>
             <div class="mt-2">
-                <label for="title">Category Name:</label>
+                <label for="categoryName">Category Name:</label>
                 <input [(ngModel)]="categoryName" type="text" name="categoryName" id="categoryName" class="form-control">
             </div>
             <div class="mt-2">
-                <label for="title">Category Description:</label>
+                <label for="categoryDescription">Category Description:</label>
                 <textarea [(ngModel)]="categoryDescription" type="text" name="categoryDescription" id="categoryDescription" class="form-control"></textarea>
             </div>
-
+              <div class="row mt-2"> 
+                 <label class="form-label">Category Status</label>   
+          <label class="form-check-label">
+              <input [(ngModel)]="isActive" type="checkbox" name="isActive" id="isActive" class="form-check-input">
+            Is Active
+          </label>
+        </div>  
             @if(error){
                 <div>
                     <span class="text-danger">{{ error }}</span>

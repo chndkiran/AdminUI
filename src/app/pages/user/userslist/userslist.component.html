@@ -1,10 +1,11 @@
 <div class="card mt-5">
-    <h3 class="card-header p-3"> Angular CRUD App</h3>
+    <h3 class="card-header p-3">User </h3>
     <div class="card-body">
 
         <div class="m-1">
-            <a            
-             class="btn btn-success btn-sm">Create Category</a>
+            <a         
+            [routerLink]="['/user/adduser']"   
+             class="btn btn-success btn-sm">Add</a>
         </div>
 
         <table class="table table-bordered table-striped">
@@ -19,28 +20,18 @@
             </thead>
             <tbody>
                 <!-- @for(category of categories; track category.categoryId){ -->
-                <tr *ngFor="let user of users | paginate: { itemsPerPage: 5, currentPage: page ,totalItems: totalCount}">
-                    <td>{{ user.usrname }}</td>                    
-                    <td>{{ user.firstname}}</td>
-                    <td>{{ user.lastname }}</td>
-                    <td>{{user.email}}</td>
-                    <td>                        
+                <tr *ngFor="let user of users | paginate: { itemsPerPage: itemsPerPage, currentPage: page ,totalItems: totalCount}">
+                    <td>{{ user.userName }}</td>                    
+                    <td>{{ user.firstName}}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{user.emailId}}</td>
+                    <td>                       
                        
                     </td>
                 </tr>
                 <!-- } -->
             </tbody>
-        </table>
-
-        <!-- <ul>
-  <li *ngFor="let category of categories | paginate: { itemsPerPage: 10, currentPage: page }">
-    
-    {{ category.categoryId }}
-                {{ category.categoryName }}
-                   {{ category.categoryDescription }}
-                   {{ category.isActive }}
-  </li>
-</ul> -->
+        </table>       
 
 <!-- Pagination -->
 <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>

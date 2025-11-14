@@ -1,1 +1,101 @@
-<p>createuser works!</p>
+<div class="card mt-5">
+    <h3 class="card-header p-3"> Create User</h3>
+    <div class="card-body">
+
+        <div class="m-1">
+            <a
+            [routerLink]="['/user/userlist']"
+             class="btn btn-primary btn-sm">Back</a>
+        </div>
+
+        <form formGroup="userForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="categoryname">Username:</label>
+                <input formControlName="userName" type="text" name="userName" id="userName" class="form-control" 
+                [ngClass]="{'is-invalid': f.submitted && f.userName.errors}">
+                 <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+          <div *ngIf="f.userName.errors['required']">User Name is required</div>
+          <div *ngIf="f.userName.errors['minlength']">Minimum 5 characters</div>
+        </div>
+      </div>
+  
+            <div class="mb-3">
+                <label for="categorydescription">Password:</label>
+                <input formControlName="password" type="password" name="password" id="password" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categorydescription">Confirm Password:</label>
+                <input formControlName="confirmPassword" type="password" name="confirmPassword" id="confirmPassword" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">First Name:</label>
+                <input formControlName="firstName" type="text" name="firstName" id="firstName" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">Last Name:</label>
+                <input formControlName="lastName" type="text" name="lastName" id="lastName" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">Middle Name:</label>
+                <input formControlName="middleName" type="text" name="middleName" id="middleName" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">Email Id:</label>
+                <input formControlName="email" type="email" name="email" id="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">Mobile 1:</label>
+                <input formControlName="mobile1" type="text" name="mobile1" id="mobile1" class="form-control">
+            </div>
+             <div class="mb-3">
+                <label for="categoryname">Mobile 2:</label>
+                <input formControlName="mobile2" type="text" name="mobile2" id="mobile2" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">Telephone:</label>
+                <input formControlName="telePhone" type="text" name="telePhone" id="telePhone" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender</label> 
+                <div *ngFor="let g of genders">
+               <label>
+                    <input
+                        type="radio"
+                        name="gender"
+                        formControlName="gender"                        
+                        [value]="g.value"
+                    />
+                    {{ g.label }}
+                </label>
+                </div>
+            </div>
+            <div *ngIf="userForm.get('gender')?.invalid && userForm.get('gender')?.touched" style="color:red;">
+    Please select a gender.
+  </div>
+             <div class="mb-3">
+                <label for="categoryname">Date of Birth:</label>
+                <input formControlName="dob" type="text" name="dob" id="dob" class="form-control">
+            </div>
+             <div class="mb-3">
+                <label for="categoryname">Photo:</label>
+                <input formControlName="photo" type="file" name="photo" id="photo" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="categoryname">Photo:</label>
+                <select formControlName="userRoleId" name="userRoleId" id="userRoleId" class="form-control"></select>
+            </div>
+
+             <div class="row mb-3">
+                <label class="form-label">User Status</label>   
+          <label class="form-check-label">
+              <input formControlName="isActive" type="checkbox" name="isActive" id="isActive" class="form-check-input">
+            Is Active
+          </label>
+            </div>            
+            <div class="mb-3">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

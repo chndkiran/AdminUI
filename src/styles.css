@@ -78,3 +78,5 @@
     background-color: #adb5bd;
     color: #2c3e50;
   }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

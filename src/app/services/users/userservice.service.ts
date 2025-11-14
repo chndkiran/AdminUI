@@ -15,7 +15,7 @@ export class UserserviceService {
    constructor(private http:HttpClient){
   }
 
-  getAllUsers(page:number): Observable<any> {
-      return this.http.get<User[]>(this.apiURL+this.endPoint+'/GetAllUsers'+'?pageNumber=' + page);
+  getAllUsers(page:number,itemsPerPage:number): Observable<any> {
+      return this.http.get<User[]>(this.apiURL+this.endPoint+'/GetAllUsers'+'?pageNumber=' + page +'&pageSize='+itemsPerPage);
     }
 }

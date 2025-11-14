@@ -14,8 +14,8 @@ export class CategoryserviceService {
   constructor(private http:HttpClient){
   }
 
-  getAllCategories(page:number): Observable<any> {
-    return this.http.get<categories[]>(this.apiURL+this.endPoint+'/GetAllCategories'+'?pageNumber=' + page);
+  getAllCategories(page:number,itemsPerPage:number): Observable<any> {
+    return this.http.get<categories[]>(this.apiURL+this.endPoint+'/GetAllCategories'+'?pageNumber=' + page +'&pageSize='+itemsPerPage);
   }
 
   getCategoriesById(categoryId:number):Observable<categories>{
